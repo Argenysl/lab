@@ -5,10 +5,10 @@ class Account:
 
         :param name: Name given to the account
         """
-        self.account_name = name
-        self.account_balance = 0
+        self.__account_name = name
+        self.__account_balance = 0
 
-    def deposit(self, amount: int) -> bool:
+    def deposit(self, amount: float) -> bool:
         """
         This function takes the account balance and increases it by the amount given.
 
@@ -18,10 +18,10 @@ class Account:
         if amount <= 0:
             return False
         else:
-            self.account_balance += amount
+            self.__account_balance += amount
             return True
 
-    def withdraw(self, amount: int) -> bool:
+    def withdraw(self, amount: float) -> bool:
         """
         This function takes a given amount out of the account balance.
 
@@ -30,19 +30,19 @@ class Account:
         """
         if amount <= 0:
             return False
-        elif amount > self.account_balance:
+        elif amount > self.__account_balance:
             return False
         else:
-            self.account_balance -= amount
+            self.__account_balance -= amount
             return True
 
-    def get_balance(self) -> str:
+    def get_balance(self) -> float:
         """
         This function shows the balance of the account.
 
         :return: The account balance
         """
-        return f'Account Balance: {self.account_balance}'
+        return self.__account_balance
 
     def get_name(self) -> str:
         """
@@ -50,4 +50,4 @@ class Account:
 
         :return: The account name
         """
-        return f'Account Name: {self.account_name}'
+        return self.__account_name
